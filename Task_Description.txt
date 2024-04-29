@@ -1,0 +1,80 @@
+Room
+
+    id_number
+    pointer to a Person who holds the key //only one exists
+
+Create an array of n rooms. The value of n should be given by the user at the beginning of the program. Read the provided id numbers of n rooms in the array.
+
+Person
+
+    name of the person (one word, at most 1000 characters)
+    number of held keys
+
+Add the following functionality accessible in any order:
+
+    D i name - Create a person of a given name. Give them key to the room at index i (simply index of the array, not id_number!). Evict the previous person if necessery (free allocated memory if they don't have any keys left) ;
+    B i id_number- Give the person in the room at index i they key to the room with number id_number (not an index!). Increase the number of keys held by the person given access, take away the key from the former keyholder if they exist. If the room or person doesn't exist print "!";
+    P - Print all rooms with the people assigned to each one of them. See the example below for the required format.
+    Q - Exit.
+
+Additional remarks:
+
+    Divide your code into functions.
+    Do not use the string type.
+    Until the last test: you can assume that the user will assign a person to a room at most once.
+    Be careful not to leave people without keys wandering around. Remember to free all allocated memory whenever it would not be possible to access it any more.
+
+Input example
+
+7
+19 84 22 5 4 101 8
+P
+D 1 Gorge
+D 2 Julia
+D 6 Winston
+P
+D 0 Obrien
+B 6 101
+B 4 19 
+P
+B 0 8 
+B 6 22 
+P
+Q
+
+Output example
+
+LOG:
+Room 19:  -
+Room 84:  -
+Room 22:  -
+Room 5:   -
+Room 4:   -
+Room 101:  -
+Room 8:  -
+LOG:
+Room 19:  -
+Room 84: Gorge, keys: 1
+Room 22: Julia, keys: 1
+Room 5:  -
+Room 4:  -
+Room 101:  -
+Room 8: Winston, keys: 1
+!                          
+LOG:
+Room 19: Obrien, keys: 1
+Room 84: Gorge, keys: 1
+Room 22: Julia, keys: 1
+Room 5:  -
+Room 4:  -
+Room 101: Winston, keys: 2
+Room 8: Winston, keys: 2
+LOG:
+Room 19: Obrien, keys: 3
+Room 84: Gorge, keys: 1
+Room 22: Obrien, keys: 3
+Room 5:  -
+Room 4:  -
+Room 101: Winston, keys: 1
+Room 8: Obrien, keys: 3
+
